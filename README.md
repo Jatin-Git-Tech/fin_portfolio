@@ -1,3 +1,30 @@
+# Financial Portfolio - Features
+- Market Trends: Displays a line chart based on market data from a JSON file.
+- Asset Allocation: Displays a pie chart representing different investment sectors.
+- Form Submission: Accepts user input to dynamically update asset allocation.
+- Reusable and Standalone Components: Uses Angular standalone components for modularity.
+
+# Setup instructions
+
+Execute these commands in the mentioned order:
+1. git clone https://github.com/your-username/financial-portfolio-dashboard.git
+2. cd financial-portfolio-dashboard
+3. npm install
+4. npm install ngx-echarts echarts
+5. Serve the Application Locally.To ensure compatibility with the Angular version specified in this project, use npx 
+   to serve the application:
+   npx ng serve
+   This will start the development server at http://localhost:4200.
+6. Open in Browser
+   Visit http://localhost:4200 to view the application.
+
+
+# Handling version issues:
+
+This project is configured with its specific Angular version using package.json. If your global Angular version conflicts, use the following command to install a local version of the Angular CLI temporarily:
+
+- npx @angular/cli@<version> serve
+
 # Portfolio
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.

@@ -16,4 +16,7 @@
       <input formControlName="date" type="date" />
     </label>
     <button type="submit" [disabled]="investmentForm.invalid">Submit</button>
-  </form>
+    <p *ngIf="investmentForm.get('price')?.value">
+      Value in currency: {{ investmentForm.get('price')?.value * 10000000 | currency:'INR':'symbol' }}
+    </p>
+</form>
