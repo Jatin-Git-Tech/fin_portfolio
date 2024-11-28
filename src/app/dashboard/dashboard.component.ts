@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxEchartsModule, provideEcharts, NGX_ECHARTS_CONFIG } from 'ngx-echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 import { CommonModule } from '@angular/common';
 import { EChartsOption } from 'echarts';
 import { Chart, registerables } from 'chart.js';
@@ -16,22 +16,6 @@ Chart.register(...registerables);
 })
 export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient, private sharedService: AssetDataService) {}
-
-//  chartOption: EChartsOption = {
-//     xAxis: {
-//       type: 'category',
-//       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-//     },
-//     yAxis: {
-//       type: 'value',
-//     },
-//     series: [
-//       {
-//         data: [820, 932, 901, 934, 1290, 1330, 1320],
-//         type: 'line',
-//       },
-//     ],
-//   };
 
   chartOption: EChartsOption = {
       xAxis: {
@@ -66,7 +50,7 @@ export class DashboardComponent implements OnInit {
           { value: 10, name: 'Logistics' },
           { value: 30, name: 'Infrastructure' },
           { value: 10, name: 'Pharma' },
-          { value: 30, name: 'Bankin  g' },
+          { value: 30, name: 'Banking' },
           { value: 10, name: 'Insurance' },
           { value: 10, name: 'Real Estate' },
         ],
@@ -92,7 +76,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  private fetchMarketTrendsData() {
+  public fetchMarketTrendsData() {
     this.http.get<any>('/assets/marketData.json').subscribe((data: { [x: string]: any; }) => {
       const marketData = data['Monthly Time Series'];
       const dates = Object.keys(marketData).slice(0, 6).reverse(); // Last 6 months
